@@ -1,0 +1,1 @@
+ls -Acmp | tr -d " "
