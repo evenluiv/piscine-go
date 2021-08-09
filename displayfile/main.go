@@ -11,7 +11,7 @@ func main() {
 	length := len(os.Args)
 	if length == 1 {
 		fmt.Print("File name missing\n")
-	} else if length < 2 {
+	} else if length > 2 {
 		fmt.Print("Too many arguments\n")
 	} else if arguments[0] == "quest8.txt" {
 
