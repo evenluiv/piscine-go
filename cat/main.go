@@ -31,6 +31,7 @@ func main() {
 			if err != nil {
 				printStr("ERROR: ")
 				printStr(err.Error())
+				printStr("\n")
 				os.Exit(1)
 				return
 			} else {
@@ -38,6 +39,7 @@ func main() {
 				if err != nil {
 					printStr("ERROR: ")
 					printStr(err.Error())
+					printStr("\n")
 					os.Exit(1)
 					break
 				} else {
