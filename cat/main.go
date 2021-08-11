@@ -21,6 +21,7 @@ func main() {
 
 		for _, v := range os.Args {
 			file, err := os.Open(v)
+			userinsert, err := ioutil.ReadAll(os.Stdin)
 			if err != nil {
 				printStr("ERROR: ")
 				printStr(err.Error())
@@ -36,6 +37,7 @@ func main() {
 					os.Exit(1)
 					break
 				} else {
+					printStr(string(userinsert))
 					printStr(string(data))
 				}
 			}
