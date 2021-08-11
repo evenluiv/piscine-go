@@ -22,12 +22,16 @@ func main() {
 		for _, v := range os.Args {
 			file, err := os.Open(v)
 			if err != nil {
+				printStr("ERROR: ")
 				printStr(err.Error())
+				os.Exit(1)
 				return
 			} else {
 				data, err := ioutil.ReadAll(file)
 				if err != nil {
+					printStr("ERROR: ")
 					printStr(err.Error())
+					os.Exit(1)
 					break
 				} else {
 					printStr(string(data))
