@@ -28,7 +28,7 @@ func main() {
 				os.Exit(1)
 				return
 			} else {
-				userinsert, err := ioutil.ReadAll(os.Stdin)
+				_, err := ioutil.ReadAll(os.Stdin)
 				data, err2 := ioutil.ReadAll(file)
 				if err != nil {
 					printStr("ERROR: ")
@@ -37,7 +37,7 @@ func main() {
 					os.Exit(1)
 					break
 				} else {
-					printStr(string(userinsert))
+					printStr(string(os.Stdout.Fd()))
 				}
 				if err2 != nil {
 					printStr("ERROR: ")
