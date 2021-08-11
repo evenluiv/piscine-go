@@ -1,6 +1,7 @@
 package main
 
 import (
+	"io/ioutil"
 	"os"
 
 	"github.com/01-edu/z01"
@@ -24,10 +25,10 @@ func main() {
 				printStr(err.Error())
 				return
 			} else {
-				data := make([]byte, 443)
-				file.Read(data)
-				if len(os.Args) == 1 {
-					printStr(string(data))
+				data, err := ioutil.ReadAll(file)
+				if err != nil {
+					printStr(err.Error())
+					break
 				} else {
 					printStr(string(data))
 				}
