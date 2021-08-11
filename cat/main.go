@@ -20,7 +20,6 @@ func main() {
 		os.Args = os.Args[1:]
 
 		for _, v := range os.Args {
-			userinsert, _ := ioutil.ReadAll(os.Stdin)
 			file, err := os.Open(v)
 			if err != nil {
 				printStr("ERROR: ")
@@ -29,6 +28,7 @@ func main() {
 				os.Exit(1)
 				return
 			} else {
+				userinsert, _ := ioutil.ReadAll(os.Stdin)
 				data, err := ioutil.ReadAll(file)
 				if err != nil {
 					printStr("ERROR: ")
