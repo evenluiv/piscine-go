@@ -28,9 +28,18 @@ func main() {
 				os.Exit(1)
 				return
 			} else {
-				_, err := ioutil.ReadAll(os.Stdin)
-				data, err2 := ioutil.ReadAll(file)
+				data, err := ioutil.ReadAll(file)
+				_, err2 := ioutil.ReadAll(os.Stdin)
 				if err != nil {
+					printStr("ERROR: ")
+					printStr(err.Error())
+					printStr("\n")
+					os.Exit(1)
+					break
+				} else {
+					printStr(string(data))
+				}
+				if err2 != nil {
 					printStr("ERROR: ")
 					printStr(os.Stderr.Name())
 					printStr("\n")
@@ -38,15 +47,6 @@ func main() {
 					break
 				} else {
 					printStr(string(os.Stdout.Fd()))
-				}
-				if err2 != nil {
-					printStr("ERROR: ")
-					printStr(err2.Error())
-					printStr("\n")
-					os.Exit(1)
-					break
-				} else {
-					printStr(string(data))
 				}
 			}
 		}
