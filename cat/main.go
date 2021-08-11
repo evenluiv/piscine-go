@@ -31,7 +31,6 @@ func main() {
 				} else {
 					printStr(string(data))
 				}
-				file.Close()
 			}
 		}
 	}
