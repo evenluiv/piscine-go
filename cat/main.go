@@ -14,6 +14,13 @@ func printStr(s string) {
 }
 
 func main() {
+	userinput, err := ioutil.ReadAll(os.Stdin)
+	if err != nil {
+		return
+	} else {
+		printStr(string(userinput))
+	}
+
 	if len(os.Args) == 1 {
 		return
 	} else {
@@ -24,29 +31,17 @@ func main() {
 			if err != nil {
 				printStr("ERROR: ")
 				printStr(err.Error())
-				printStr("\n")
 				os.Exit(1)
 				return
 			} else {
 				data, err := ioutil.ReadAll(file)
-				_, err2 := ioutil.ReadAll(os.Stdin)
 				if err != nil {
 					printStr("ERROR: ")
 					printStr(err.Error())
-					printStr("\n")
 					os.Exit(1)
 					break
 				} else {
 					printStr(string(data))
-				}
-				if err2 != nil {
-					printStr("ERROR: ")
-					printStr(os.Stderr.Name())
-					printStr("\n")
-					os.Exit(1)
-					break
-				} else {
-					printStr(string(os.Stdout.Fd()))
 				}
 			}
 		}
