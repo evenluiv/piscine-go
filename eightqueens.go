@@ -6,6 +6,10 @@ const N = 8
 
 var position = [N]int{}
 
+func printInt(s int) {
+	z01.PrintRune(rune(s + 48))
+}
+
 func isSafe(queen_number, row_position int) bool {
 	for i := 0; i < queen_number; i++ {
 		other_row_pos := position[i]
@@ -20,7 +24,7 @@ func isSafe(queen_number, row_position int) bool {
 func solve(k int) {
 	if k == N {
 		for i := 0; i < N; i++ {
-			z01.PrintRune(rune(rune(position[i] + 1)))
+			printInt(position[i] + 1)
 		}
 		z01.PrintRune('\n')
 	} else {
