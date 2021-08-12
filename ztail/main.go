@@ -41,7 +41,6 @@ func numberOfBytes(args []string) (int, []string) {
 
 func fileSize(fi *os.File) int64 {
 	fil, err := fi.Stat()
-
 	if err != nil {
 		fmt.Println(err.Error())
 		return 0
@@ -51,7 +50,6 @@ func fileSize(fi *os.File) int64 {
 }
 
 func main() {
-
 	n := len(os.Args)
 	if n < 4 {
 		fmt.Println("Not enough arguments")
@@ -62,7 +60,7 @@ func main() {
 
 	printName := len(files) > 1
 
-	//open files for reading only
+	// open files for reading only
 	for j, f := range files {
 		fi, err := os.Open(f)
 		if err != nil {
@@ -71,7 +69,6 @@ func main() {
 		}
 		if printName {
 			fmt.Printf("==> %s <==\n", f)
-
 		}
 		read := make([]byte, int(nbytes))
 		_, er := fi.ReadAt(read, fileSize(fi)-int64(nbytes))
